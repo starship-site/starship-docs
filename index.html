@@ -5,50 +5,46 @@
     <title>Starship Docs</title>
 
     <!-- Inter font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 
     <!-- Dark theme CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-darklight-theme@3/dist/style.min.css" />
 
     <!-- Other CSS -->
-     <link rel="stylesheet" href="/index.css" />
+    <link rel="stylesheet" href="/index.css" />
 
-    <style>
-      body {
-        font-family: 'Inter', sans-serif;
-      }
-    </style>
+
   </head>
   <body>
-<div id="app">
-  <div class="loader-docs">
-    <div class="loader-docs__doc">
-      <div class="loader-docs__lines">
-        <div class="loader-docs__line"></div>
-        <div class="loader-docs__line"></div>
-        <div class="loader-docs__line"></div>
+    <div id="app"></div>
+
+    <div id="loader">
+      <div class="loader-docs__doc">
+        <div class="loader-docs__lines">
+          <div class="loader-docs__line"></div>
+          <div class="loader-docs__line"></div>
+          <div class="loader-docs__line"></div>
+        </div>
+      </div>
+      <div class="loader-docs__doc">
+        <div class="loader-docs__lines">
+          <div class="loader-docs__line"></div>
+          <div class="loader-docs__line"></div>
+          <div class="loader-docs__line"></div>
+        </div>
+      </div>
+      <div class="loader-docs__doc">
+        <div class="loader-docs__lines">
+          <div class="loader-docs__line"></div>
+          <div class="loader-docs__line"></div>
+          <div class="loader-docs__line"></div>
+        </div>
+      </div>
+      <div class="loader-docs__text">
+        <span>Hold up. Docs are loading.</span>
+        <span class="loader-docs__dots"></span>
       </div>
     </div>
-    <div class="loader-docs__doc">
-      <div class="loader-docs__lines">
-        <div class="loader-docs__line"></div>
-        <div class="loader-docs__line"></div>
-        <div class="loader-docs__line"></div>
-      </div>
-    </div>
-    <div class="loader-docs__doc">
-      <div class="loader-docs__lines">
-        <div class="loader-docs__line"></div>
-        <div class="loader-docs__line"></div>
-        <div class="loader-docs__line"></div>
-      </div>
-    </div>
-  </div>
-  <div class="loader-docs__text">
-    <span>Hold up. Docs are loading.</span>
-    <span class="loader-docs__dots"></span>
-  </div>
-</div>
 
     <script>
       window.$docsify = {
@@ -70,17 +66,25 @@
             linkColor: '#58a6ff',
           },
         }
-        
       };
+
+      // Remove loader overlay after 5 seconds with fade-out
+      setTimeout(() => {
+        const loader = document.getElementById('loader');
+        if (loader) {
+          loader.classList.add('fade-out');
+          // Remove from DOM after fade completes
+          setTimeout(() => {
+            loader.remove();
+          }, 600);
+        }
+      }, 5000);
     </script>
 
-    
     <!-- Docsify core -->
     <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
 
     <!-- Darklight plugin -->
     <script src="https://cdn.jsdelivr.net/npm/docsify-darklight-theme@3/dist/index.min.js"></script>
-  
-   
   </body>
 </html>
